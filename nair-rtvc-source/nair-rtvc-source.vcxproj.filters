@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\obs-libs">
+      <UniqueIdentifier>{30db814e-249b-4214-9684-96022b247d1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\obs-libs\audio-monitoring">
+      <UniqueIdentifier>{34dfb4b1-0acb-4684-964b-961ea3e64909}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\obs-libs\callback">
+      <UniqueIdentifier>{6f588a03-312c-4429-a3dc-c76ff0456721}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\obs-libs\graphics">
+      <UniqueIdentifier>{2ac3f185-98b3-4f63-9b46-706bf09ae82b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\obs-libs\graphics\libnsgif">
+      <UniqueIdentifier>{a8ac025f-cab9-4eca-a438-d0d88e401ae7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\obs-libs\media-io">
+      <UniqueIdentifier>{3876fe21-9c1f-40fb-bb30-f9258c071f15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\obs-libs\util">
+      <UniqueIdentifier>{565cd202-4230-44cf-b503-933ccc3e7f1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\obs-libs\util\windows">
+      <UniqueIdentifier>{65431d5d-7e80-4534-abd6-5ea61af826c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\obs-libs\util\simde">
+      <UniqueIdentifier>{31cc8a12-268a-4ecb-83d2-dc23e52fd692}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\obs-libs\util\simde\x86">
+      <UniqueIdentifier>{88b2b024-35a4-45c9-a07a-73718c2d7f30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\obs-libs\util\curl">
+      <UniqueIdentifier>{66e91cf3-a7ef-462e-abcb-d753074b1e40}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs.hpp">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-audio-controls.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-avc.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obsconfig.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-config.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-data.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-defs.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-encoder.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-ffmpeg-compat.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-frontend-api.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-hevc.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-hotkey.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-hotkeys.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-interaction.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-internal.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-missing-files.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-module.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-nal.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-nix.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-output.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-properties.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-scene.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-service.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-source.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-ui.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\pthread.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\sched.h">
+      <Filter>ヘッダー ファイル\obs-libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\audio-monitoring\win32\wasapi-output.h">
+      <Filter>ヘッダー ファイル\obs-libs\audio-monitoring</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\callback\calldata.h">
+      <Filter>ヘッダー ファイル\obs-libs\callback</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\callback\decl.h">
+      <Filter>ヘッダー ファイル\obs-libs\callback</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\callback\proc.h">
+      <Filter>ヘッダー ファイル\obs-libs\callback</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\callback\signal.h">
+      <Filter>ヘッダー ファイル\obs-libs\callback</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\axisang.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\basemath.hpp">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\bounds.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\device-exports.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\effect.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\effect-parser.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\graphics.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\graphics-internal.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\half.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\image-file.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\input.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\math-defs.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\math-extra.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\matrix3.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\matrix4.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\plane.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\quat.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\shader-parser.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\srgb.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\vec2.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\vec3.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\vec4.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\libnsgif\libnsgif.h">
+      <Filter>ヘッダー ファイル\obs-libs\graphics\libnsgif</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\audio-math.h">
+      <Filter>ヘッダー ファイル\obs-libs\media-io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\audio-resampler.h">
+      <Filter>ヘッダー ファイル\obs-libs\media-io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\format-conversion.h">
+      <Filter>ヘッダー ファイル\obs-libs\media-io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\frame-rate.h">
+      <Filter>ヘッダー ファイル\obs-libs\media-io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\media-io-defs.h">
+      <Filter>ヘッダー ファイル\obs-libs\media-io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\media-remux.h">
+      <Filter>ヘッダー ファイル\obs-libs\media-io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\video-frame.h">
+      <Filter>ヘッダー ファイル\obs-libs\media-io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\video-io.h">
+      <Filter>ヘッダー ファイル\obs-libs\media-io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\video-scaler.h">
+      <Filter>ヘッダー ファイル\obs-libs\media-io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\audio-io.h">
+      <Filter>ヘッダー ファイル\obs-libs\media-io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\AlignedNew.hpp">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\array-serializer.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\base.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\bitstream.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\bmem.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\c99defs.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\cf-lexer.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\cf-parser.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\circlebuf.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\config-file.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\crc32.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\darray.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\dstr.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\dstr.hpp">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\file-serializer.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\lexer.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\pipe.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\platform.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\profiler.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\profiler.hpp">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\serializer.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\sse-intrin.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\task.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\text-lookup.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\threading.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\threading-windows.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\utf8.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\uthash.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\util.hpp">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\util_uint64.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\util_uint128.h">
+      <Filter>ヘッダー ファイル\obs-libs\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\windows\ComPtr.hpp">
+      <Filter>ヘッダー ファイル\obs-libs\util\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\windows\CoTaskMemPtr.hpp">
+      <Filter>ヘッダー ファイル\obs-libs\util\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\windows\device-enum.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\windows\HRError.hpp">
+      <Filter>ヘッダー ファイル\obs-libs\util\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\windows\obfuscate.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\windows\window-helpers.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\windows\WinHandle.hpp">
+      <Filter>ヘッダー ファイル\obs-libs\util\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\windows\win-registry.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\windows\win-version.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\check.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\simde</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\debug-trap.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\simde</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\hedley.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\simde</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\simde-align.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\simde</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\simde-arch.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\simde</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\simde-common.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\simde</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\simde-constify.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\simde</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\simde-detect-clang.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\simde</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\simde-diagnostic.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\simde</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\simde-features.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\simde</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\simde-math.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\simde</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\x86\mmx.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\simde\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\x86\sse.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\simde\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\x86\sse2.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\simde\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\curl\curl-helper.h">
+      <Filter>ヘッダー ファイル\obs-libs\util\curl</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

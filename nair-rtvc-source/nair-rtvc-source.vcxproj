@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{42439f1e-ee88-44e9-b220-3b962dcd30f9}</ProjectGuid>
+    <RootNamespace>obssource</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>nair-rtvc-source</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseInteloneMKL>Sequential</UseInteloneMKL>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseInteloneMKL>Sequential</UseInteloneMKL>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseInteloneMKL>Sequential</UseInteloneMKL>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseInteloneMKL>Sequential</UseInteloneMKL>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(SolutionDir)include;$(SolutionDir)thirdparty\obs-libs\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)thirdparty\obs-libs\bin;$(LibraryPath)</LibraryPath>
+    <IntDir>$(ProjectDir)$(Platform)\$(Configuration)\</IntDir>
+    <linkage-MKL-static-win-x64>static</linkage-MKL-static-win-x64>
+    <threading-MKL-static-win-x64>sequential</threading-MKL-static-win-x64>
+    <interface-MKL-static-win-x64>lp64</interface-MKL-static-win-x64>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)include;$(SolutionDir)thirdparty\obs-libs\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)thirdparty\obs-libs\bin;$(LibraryPath)</LibraryPath>
+    <IntDir>$(ProjectDir)$(Platform)\$(Configuration)\</IntDir>
+    <linkage-MKL-static-win-x64>static</linkage-MKL-static-win-x64>
+    <threading-MKL-static-win-x64>sequential</threading-MKL-static-win-x64>
+    <interface-MKL-static-win-x64>lp64</interface-MKL-static-win-x64>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;OBSSOURCE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;OBSSOURCE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;OBSSOURCE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;OBSSOURCE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <StructMemberAlignment>16Bytes</StructMemberAlignment>
+      <EnableModules>false</EnableModules>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\thirdparty\obs-libs\include\audio-monitoring\win32\wasapi-output.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\callback\calldata.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\callback\decl.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\callback\proc.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\callback\signal.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\axisang.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\basemath.hpp" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\bounds.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\device-exports.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\effect-parser.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\effect.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\graphics-internal.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\graphics.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\half.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\image-file.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\input.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\libnsgif\libnsgif.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\math-defs.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\math-extra.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\matrix3.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\matrix4.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\plane.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\quat.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\shader-parser.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\srgb.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\vec2.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\vec3.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\graphics\vec4.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\audio-io.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\audio-math.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\audio-resampler.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\format-conversion.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\frame-rate.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\media-io-defs.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\media-remux.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\video-frame.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\video-io.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\media-io\video-scaler.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-audio-controls.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-avc.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-config.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-data.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-defs.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-encoder.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-ffmpeg-compat.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-frontend-api.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-hevc.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-hotkey.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-hotkeys.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-interaction.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-internal.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-missing-files.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-module.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-nal.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-nix.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-output.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-properties.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-scene.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-service.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-source.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs-ui.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obs.hpp" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\obsconfig.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\pthread.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\sched.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\AlignedNew.hpp" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\array-serializer.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\base.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\bitstream.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\bmem.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\c99defs.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\cf-lexer.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\cf-parser.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\circlebuf.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\config-file.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\crc32.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\curl\curl-helper.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\darray.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\dstr.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\dstr.hpp" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\file-serializer.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\lexer.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\pipe.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\platform.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\profiler.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\profiler.hpp" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\serializer.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\check.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\debug-trap.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\hedley.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\simde-align.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\simde-arch.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\simde-common.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\simde-constify.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\simde-detect-clang.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\simde-diagnostic.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\simde-features.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\simde-math.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\x86\mmx.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\x86\sse.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\simde\x86\sse2.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\sse-intrin.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\task.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\text-lookup.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\threading-windows.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\threading.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\utf8.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\uthash.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\util.hpp" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\util_uint128.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\util_uint64.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\windows\ComPtr.hpp" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\windows\CoTaskMemPtr.hpp" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\windows\device-enum.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\windows\HRError.hpp" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\windows\obfuscate.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\windows\win-registry.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\windows\win-version.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\windows\window-helpers.h" />
+    <ClInclude Include="..\thirdparty\obs-libs\include\util\windows\WinHandle.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>
