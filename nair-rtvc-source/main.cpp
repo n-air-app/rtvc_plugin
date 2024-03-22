@@ -554,10 +554,12 @@ namespace {
 
       ::SetEvent(hEvtShutdown_);
       ::WaitForSingleObject(hAudioThread_, INFINITE);
-      if FAILED(hr = pAudioClientIn_->Stop()) {
-        std::string const& msg = std::system_category().message(hr);
-        OBS_ERROR("Unable to stop audio pAudioClientIn: %s (%x)", msg.c_str(), hr);
-        return hr;
+      if (pAudioClientIn_) {
+          if FAILED(hr = pAudioClientIn_->Stop()) {
+              std::string const& msg = std::system_category().message(hr);
+              OBS_ERROR("Unable to stop audio pAudioClientIn: %s (%x)", msg.c_str(), hr);
+              return hr;
+          }
       }
 
       if (hEvtAudioCaptureSamplesReady_) {
@@ -575,9 +577,9 @@ namespace {
         hAudioThread_ = nullptr;
       }
 
-      pCaptureClient_.Reset();
-      pAudioClientIn_.Reset();
-      pDevice_.Reset();
+      if (pCaptureClient_) pCaptureClient_.Reset();
+      if (pAudioClientIn_) pAudioClientIn_.Reset();
+      if (pDevice_) pDevice_.Reset();
 
       return hr;
     }
@@ -869,8 +871,8 @@ namespace {
 
     obs_source_t* context_;
 
-    Microsoft::WRL::ComPtr<IMMDeviceCollection> pDeviceCollection_;
-    Microsoft::WRL::ComPtr<IMMDevice> pDevice_;
+    Microsoft::WRL::ComPtr<IMMDeviceCollection> pDeviceCollection_ = nullptr;
+    Microsoft::WRL::ComPtr<IMMDevice> pDevice_ = nullptr;
 
     int device_count_ = 0;
     std::atomic<int> device_id_ = -1;
@@ -889,8 +891,8 @@ namespace {
     HANDLE hEvtAudioCaptureSamplesReady_ = nullptr;
     HANDLE hEvtShutdown_ = nullptr;
     HANDLE hAudioThread_ = nullptr;
-    Microsoft::WRL::ComPtr<IAudioClient3> pAudioClientIn_;
-    Microsoft::WRL::ComPtr<IAudioCaptureClient> pCaptureClient_;
+    Microsoft::WRL::ComPtr<IAudioClient3> pAudioClientIn_ = nullptr;
+    Microsoft::WRL::ComPtr<IAudioCaptureClient> pCaptureClient_ = nullptr;
 
     std::unique_ptr<float[]> buffer0_;
     std::unique_ptr<float[]> buffer1_;
