@@ -425,6 +425,11 @@ namespace {
     HRESULT Start() {
       HRESULT hr = S_OK;
 
+      if (device_count_ <= 0) {
+          OBS_ERROR("could not found input devices");
+          return E_FAIL;
+      }
+
       if (hEvtAudioCaptureSamplesReady_) {
         ::CloseHandle(hEvtAudioCaptureSamplesReady_);
         hEvtAudioCaptureSamplesReady_ = nullptr;
@@ -554,10 +559,12 @@ namespace {
 
       ::SetEvent(hEvtShutdown_);
       ::WaitForSingleObject(hAudioThread_, INFINITE);
-      if FAILED(hr = pAudioClientIn_->Stop()) {
-        std::string const& msg = std::system_category().message(hr);
-        OBS_ERROR("Unable to stop audio pAudioClientIn: %s (%x)", msg.c_str(), hr);
-        return hr;
+      if (pAudioClientIn_) {
+          if FAILED(hr = pAudioClientIn_->Stop()) {
+              std::string const& msg = std::system_category().message(hr);
+              OBS_ERROR("Unable to stop audio pAudioClientIn: %s (%x)", msg.c_str(), hr);
+              return hr;
+          }
       }
 
       if (hEvtAudioCaptureSamplesReady_) {
