@@ -905,7 +905,7 @@ extern "C" {
 
   bool obs_module_load(void)
   {
-    OBS_INFO("plugin loaded successfully (version 1.0.2)");
+    OBS_INFO("plugin loaded successfully (version 1.0.3)");
 
     obs_source_info info;
     std::memset(&info, 0, sizeof(info));
