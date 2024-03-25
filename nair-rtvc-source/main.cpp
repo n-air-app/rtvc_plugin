@@ -425,6 +425,11 @@ namespace {
     HRESULT Start() {
       HRESULT hr = S_OK;
 
+      if (device_count_ <= 0) {
+          OBS_ERROR("could not found input devices");
+          return E_FAIL;
+      }
+
       if (hEvtAudioCaptureSamplesReady_) {
         ::CloseHandle(hEvtAudioCaptureSamplesReady_);
         hEvtAudioCaptureSamplesReady_ = nullptr;
@@ -577,9 +582,9 @@ namespace {
         hAudioThread_ = nullptr;
       }
 
-      if (pCaptureClient_) pCaptureClient_.Reset();
-      if (pAudioClientIn_) pAudioClientIn_.Reset();
-      if (pDevice_) pDevice_.Reset();
+      pCaptureClient_.Reset();
+      pAudioClientIn_.Reset();
+      pDevice_.Reset();
 
       return hr;
     }
@@ -871,8 +876,8 @@ namespace {
 
     obs_source_t* context_;
 
-    Microsoft::WRL::ComPtr<IMMDeviceCollection> pDeviceCollection_ = nullptr;
-    Microsoft::WRL::ComPtr<IMMDevice> pDevice_ = nullptr;
+    Microsoft::WRL::ComPtr<IMMDeviceCollection> pDeviceCollection_;
+    Microsoft::WRL::ComPtr<IMMDevice> pDevice_;
 
     int device_count_ = 0;
     std::atomic<int> device_id_ = -1;
@@ -891,8 +896,8 @@ namespace {
     HANDLE hEvtAudioCaptureSamplesReady_ = nullptr;
     HANDLE hEvtShutdown_ = nullptr;
     HANDLE hAudioThread_ = nullptr;
-    Microsoft::WRL::ComPtr<IAudioClient3> pAudioClientIn_ = nullptr;
-    Microsoft::WRL::ComPtr<IAudioCaptureClient> pCaptureClient_ = nullptr;
+    Microsoft::WRL::ComPtr<IAudioClient3> pAudioClientIn_;
+    Microsoft::WRL::ComPtr<IAudioCaptureClient> pCaptureClient_;
 
     std::unique_ptr<float[]> buffer0_;
     std::unique_ptr<float[]> buffer1_;
