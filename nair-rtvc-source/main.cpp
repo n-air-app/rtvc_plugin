@@ -425,11 +425,6 @@ namespace {
     HRESULT Start() {
       HRESULT hr = S_OK;
 
-      if (device_count_ <= 0) {
-          OBS_ERROR("could not found input devices");
-          return E_FAIL;
-      }
-
       if (hEvtAudioCaptureSamplesReady_) {
         ::CloseHandle(hEvtAudioCaptureSamplesReady_);
         hEvtAudioCaptureSamplesReady_ = nullptr;
