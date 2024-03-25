@@ -451,8 +451,7 @@ namespace {
 
       int const device_id = device_id_.load(std::memory_order::acquire);
       int const latency_type = latency_mode_.load(std::memory_order::acquire);
-
-      if FAILED(hr = pDeviceCollection_->Item((device_id < device_count_) ? device_id : 0, &pDevice_)) {
+      if FAILED(hr = pDeviceCollection_->Item(device_id, &pDevice_)) {
         std::string const& msg = std::system_category().message(hr);
         OBS_ERROR("unable to retrieve pDeviceIn: %s (%x)", msg.c_str(), hr);
         return hr;
