@@ -90,6 +90,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
 		}
 		library_path += L"\\";
 		library_path += VVFX_FILE;
+		OBS_INFO("load rtvc at %ls", library_path.c_str());
 		hDynamicModule = LoadLibrary(library_path.c_str());
 		if (!hDynamicModule) {
 			TCHAR szModulePath[MAX_PATH];
@@ -98,8 +99,10 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
 			std::filesystem::path local_library_path{ szModulePath };
 			local_library_path = local_library_path.parent_path() / VVFX_FILE;
 
+			OBS_INFO("load rtvc at %ls", local_library_path.c_str());
 			hDynamicModule = ::LoadLibrary(local_library_path.c_str());
 			if (!hDynamicModule) {
+				OBS_ERROR("failed to load rtvc.vvfx");
 				return FALSE;
 			}
 		}
@@ -108,21 +111,25 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
 		{
 			rtvc_get_protocol_version = reinterpret_cast<rtvc_get_protocol_version_fn>(::GetProcAddress(hDynamicModule, "get_protocol_version"));
 			if (!rtvc_get_protocol_version) {
+				OBS_ERROR("failed to get proc get_protocol_version");
 				return FALSE;
 			}
 
 			rtvc_init = reinterpret_cast<rtvc_init_fn>(::GetProcAddress(hDynamicModule, "init"));
 			if (!rtvc_init) {
+				OBS_ERROR("failed to get proc init");
 				return FALSE;
 			}
 
 			rtvc_destroy = reinterpret_cast<rtvc_destroy_fn>(::GetProcAddress(hDynamicModule, "destroy"));
 			if (!rtvc_destroy) {
+				OBS_ERROR("failed to get proc destroy");
 				return FALSE;
 			}
 
 			rtvc_process = reinterpret_cast<rtvc_process_fn>(::GetProcAddress(hDynamicModule, "process"));
 			if (!rtvc_process) {
+				OBS_ERROR("failed to get proc process");
 				return FALSE;
 			}
 		}
@@ -131,21 +138,25 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
 		{
 			rtvc_get_version = reinterpret_cast<rtvc_get_version_fn>(::GetProcAddress(hDynamicModule, "get_version"));
 			if (!rtvc_get_version) {
+				OBS_ERROR("failed to get proc get_version");
 				return FALSE;
 			}
 
 			rtvc_get_sample_rate = reinterpret_cast<rtvc_get_sample_rate_fn>(::GetProcAddress(hDynamicModule, "get_sample_rate"));
 			if (!rtvc_get_sample_rate) {
+				OBS_ERROR("failed to get proc get_sample_rate");
 				return FALSE;
 			}
 
 			rtvc_get_sample_latency = reinterpret_cast<rtvc_get_sample_latency_fn>(::GetProcAddress(hDynamicModule, "get_sample_latency"));
 			if (!rtvc_get_sample_latency) {
+				OBS_ERROR("failed to get proc get_sample_latency");
 				return FALSE;
 			}
 
 			rtvc_get_block_size = reinterpret_cast<rtvc_get_block_size_fn>(::GetProcAddress(hDynamicModule, "get_block_size"));
 			if (!rtvc_get_block_size) {
+				OBS_ERROR("failed to get proc get_block_size");
 				return FALSE;
 			}
 		}
@@ -154,11 +165,13 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
 		{
 			rtvc_get_num_params = reinterpret_cast<rtvc_get_num_params_fn>(::GetProcAddress(hDynamicModule, "get_num_params"));
 			if (!rtvc_get_num_params) {
+				OBS_ERROR("failed to get proc get_num_params");
 				return FALSE;
 			}
 
 			rtvc_get_param_name = reinterpret_cast<rtvc_get_param_name_fn>(::GetProcAddress(hDynamicModule, "get_param_name"));
 			if (!rtvc_get_param_name) {
+				OBS_ERROR("failed to get proc get_param_name");
 				return FALSE;
 			}
 		}
@@ -167,24 +180,29 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
 		{
 			rtvc_get_num_voices = reinterpret_cast<rtvc_get_num_voices_fn>(::GetProcAddress(hDynamicModule, "get_num_voices"));
 			if (!rtvc_get_num_voices) {
+				OBS_ERROR("failed to get proc get_num_voices");
 				return FALSE;
 			}
 
 			rtvc_get_voice_name = reinterpret_cast<rtvc_get_voice_name_fn>(::GetProcAddress(hDynamicModule, "get_voice_name"));
 			if (!rtvc_get_voice_name) {
+				OBS_ERROR("failed to get proc get_voice_name");
 				return FALSE;
 			}
 
 			rtvc_set_voice = reinterpret_cast<rtvc_set_voice_fn>(::GetProcAddress(hDynamicModule, "set_voice"));
 			if (!rtvc_set_voice) {
+				OBS_ERROR("failed to get proc set_voice");
 				return FALSE;
 			}
 
 			rtvc_set_voices = reinterpret_cast<rtvc_set_voices_fn>(::GetProcAddress(hDynamicModule, "set_voices"));
 			if (!rtvc_set_voices) {
+				OBS_ERROR("failed to get proc set_voices");
 				return FALSE;
 			}
 		}
+		OBS_INFO("dll_process_attach done");
 
 		break;
 	}
@@ -228,6 +246,7 @@ namespace {
 		// 構築する
 		HRESULT Init() {
 			HRESULT hr = S_OK;
+			OBS_INFO("rtvc init");
 
 			Microsoft::WRL::ComPtr<IMMDeviceEnumerator> pDeviceEnumerator;
 			if FAILED(hr = ::CoCreateInstance(__uuidof(MMDeviceEnumerator), nullptr, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&pDeviceEnumerator)))
@@ -300,6 +319,7 @@ namespace {
 
 		// 破棄する
 		HRESULT Destroy() {
+			OBS_INFO("rtvc destroy");
 			HRESULT hr = S_OK;
 
 			if FAILED(hr = Stop()) {
@@ -423,6 +443,7 @@ namespace {
 		}
 
 		HRESULT Start() {
+			OBS_INFO("rtvc start");
 			HRESULT hr = S_OK;
 
 			if (hEvtAudioCaptureSamplesReady_) {
@@ -549,6 +570,7 @@ namespace {
 		}
 
 		HRESULT Stop() {
+			OBS_INFO("rtvc stop");
 			HRESULT hr = S_OK;
 
 			::SetEvent(hEvtShutdown_);
