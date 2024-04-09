@@ -222,19 +222,23 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
 namespace {
 	class OBSAudioSource final {
 		static constexpr char const* const LATENCY_MODES[] = {
-		  "minimum-latency",
-		  "ultra_low-latency",
-		  "hyper_low-latency",
-		  "super_low-latency",
-		  "very_low-latency",
-		  "low-latency",
-		  "middle-latency",
-		  "high-latency",
-		  "very_high-latency",
-		  "super_high-latency",
-		  "hyper_high-latency",
-		  "ultra_high-latency",
-		  "maximum-latency",
+			"minimum-latency",
+			"ultra_low-latency",
+			"hyper_low-latency",
+			"super_low-latency",
+			"very_low-latency",
+			"low-latency",
+			"middle-latency",
+			"high-latency",
+			"very_high-latency",
+			"super_high-latency",
+			"hyper_high-latency",
+			"ultra_high-latency",
+			"maximum-latency",
+		};
+		static constexpr double const PITCH_SHIFT_PROTOTYPES[2][5] = {
+			{0, +1200,    0,    0, -1200},  // song mode
+			{0, +1000, +400, -200,  -800},  // talk mode
 		};
 
 	public:
@@ -404,8 +408,17 @@ namespace {
 				obs_property_float_set_suffix(prop_output_gain, " db");
 			}
 			{
+				obs_property_t* prop_your_voice = obs_properties_add_list(&props, "your_voice", "Your Voice", OBS_COMBO_TYPE_LIST, OBS_COMBO_FORMAT_INT);
+
+				obs_property_list_add_int(prop_your_voice, "neutral", 0);
+				obs_property_list_add_int(prop_your_voice, "bass", 1);
+				obs_property_list_add_int(prop_your_voice, "tenor", 2);
+				obs_property_list_add_int(prop_your_voice, "alto", 3);
+				obs_property_list_add_int(prop_your_voice, "soprano", 4);
+			}
+			{
 				obs_property_t* prop_pitch_shift = obs_properties_add_float_slider(&props, "pitch_shift", "Pitch Shift", -1200, 1200, 1);
-				obs_property_float_set_suffix(prop_pitch_shift, " cent");
+				obs_property_float_set_suffix(prop_pitch_shift, " cent(s)");
 			}
 			{
 				obs_property_t* prop_pitch_shift_mode = obs_properties_add_list(&props, "pitch_shift_mode", "Pitch Shift Mode", OBS_COMBO_TYPE_LIST, OBS_COMBO_FORMAT_INT);
@@ -632,7 +645,8 @@ namespace {
 				output_gain_.store(static_cast<float>(std::pow(10.0, obs_data_get_double(settings, "output_gain") * 0.05)), std::memory_order::release);
 
 				// cent = 1200 * log2(hz)
-				pitch_shift_.store(static_cast<float>(obs_data_get_double(settings, "pitch_shift") * (std::log(2.0) / 1200.0)), std::memory_order::release);
+				double const base_pitch_shift = PITCH_SHIFT_PROTOTYPES[obs_data_get_int(settings, "pitch_shift_mode")][obs_data_get_int(settings, "your_voice")];
+				pitch_shift_.store(static_cast<float>((obs_data_get_double(settings, "pitch_shift") + base_pitch_shift) * (std::log(2.0) / 1200.0)), std::memory_order::release);
 				pitch_shift_mode_.store(static_cast<float>(obs_data_get_int(settings, "pitch_shift_mode")), std::memory_order::release);
 				pitch_snap_.store(static_cast<float>(obs_data_get_double(settings, "pitch_snap") * 0.01), std::memory_order::release);
 				primary_voice_.store(static_cast<int>(obs_data_get_int(settings, "primary_voice")), std::memory_order::release);
@@ -736,11 +750,11 @@ namespace {
 					}
 					{
 						float const params[] = {
-						  input_gain_.load(std::memory_order::acquire),
-						  output_gain_.load(std::memory_order::acquire),
-						  pitch_shift_.load(std::memory_order::acquire),
-						  pitch_shift_mode_.load(std::memory_order::acquire),
-						  pitch_snap_.load(std::memory_order::acquire),
+							input_gain_.load(std::memory_order::acquire),
+							output_gain_.load(std::memory_order::acquire),
+							pitch_shift_.load(std::memory_order::acquire),
+							pitch_shift_mode_.load(std::memory_order::acquire),
+							pitch_snap_.load(std::memory_order::acquire),
 						};
 						constexpr int const num_params = static_cast<int>(std::size(params));
 						float* out = buffer1_.get();
@@ -804,6 +818,7 @@ namespace {
 
 			obs_data_set_default_double(settings, "input_gain", 0.0);
 			obs_data_set_default_double(settings, "output_gain", 0.0);
+			obs_data_set_default_double(settings, "your_voice", 0);
 			obs_data_set_default_double(settings, "pitch_shift", 0.0);
 			obs_data_set_default_int(settings, "pitch_shift_mode", 1);
 			obs_data_set_default_double(settings, "pitch_snap", 0.0);

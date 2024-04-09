@@ -417,4 +417,9 @@
       <Filter>ヘッダー ファイル\obs-libs\util\curl</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc">
+      <Filter>リソース ファイル</Filter>
+    </ResourceCompile>
+  </ItemGroup>
 </Project>
