@@ -2,8 +2,8 @@
 #include "winres.h"
 
 VS_VERSION_INFO VERSIONINFO
-    FILEVERSION 1,0,4,0
-    PRODUCTVERSION 1,0,4,0
+    FILEVERSION 1,0,5,0
+    PRODUCTVERSION 1,0,5,0
     FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
     FILEFLAGS 0x1L
@@ -18,12 +18,12 @@ VS_VERSION_INFO VERSIONINFO
         BLOCK "040904E4" {
             VALUE "CompanyName", "DWANGO Co., Ltd.\0"
             VALUE "FileDescription", "Real-Time Voice Changer\0"
-            VALUE "FileVersion", "1.0.4.0\0"
+            VALUE "FileVersion", "1.0.5.0\0"
             VALUE "InternalName", "nair-rtvc-source.dll\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 DWANGO Co., Ltd.\0"
             VALUE "OriginalFilename", "nair-rtvc-source.dll\0"
             VALUE "ProductName", "nair-rtvc-source.dll\0"
-            VALUE "ProductVersion", "1.0.4.0\0"
+            VALUE "ProductVersion", "1.0.5.0\0"
         }
     }
     BLOCK "VarFileInfo" {
